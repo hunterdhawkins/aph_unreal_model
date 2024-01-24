@@ -1,0 +1,15 @@
+{
+	"SourceFiles": [
+		"C:\\Users\\hawk5052\\Documents\\Unreal Projects\\TestProject01\\Source\\TestProject01\\TestProject01.Build.cs",
+		"C:\\Users\\hawk5052\\Documents\\Unreal Projects\\TestProject01\\Plugins\\SerialCOM\\Source\\SERIALCOM\\SERIALCOM.Build.cs",
+		"C:\\Users\\hawk5052\\Documents\\Unreal Projects\\TestProject01\\Plugins\\SocketIOClient\\Source\\CoreUtility\\CoreUtility.Build.cs",
+		"C:\\Users\\hawk5052\\Documents\\Unreal Projects\\TestProject01\\Plugins\\SocketIOClient\\Source\\SIOJEditorPlugin\\SIOJEditorPlugin.Build.cs",
+		"C:\\Users\\hawk5052\\Documents\\Unreal Projects\\TestProject01\\Plugins\\SocketIOClient\\Source\\SIOJson\\SIOJson.Build.cs",
+		"C:\\Users\\hawk5052\\Documents\\Unreal Projects\\TestProject01\\Plugins\\SocketIOClient\\Source\\SocketIOClient\\SocketIOClient.Build.cs",
+		"C:\\Users\\hawk5052\\Documents\\Unreal Projects\\TestProject01\\Plugins\\SocketIOClient\\Source\\SocketIOLib\\SocketIOLib.Build.cs",
+		"C:\\Users\\hawk5052\\Documents\\Unreal Projects\\TestProject01\\Plugins\\UDPWrapper\\Source\\UDPWrapper\\UDPWrapper.Build.cs",
+		"C:\\Users\\hawk5052\\Documents\\Unreal Projects\\TestProject01\\Source\\TestProject01.Target.cs",
+		"C:\\Users\\hawk5052\\Documents\\Unreal Projects\\TestProject01\\Source\\TestProject01Editor.Target.cs"
+	],
+	"EngineVersion": "5.3.2"
+}
