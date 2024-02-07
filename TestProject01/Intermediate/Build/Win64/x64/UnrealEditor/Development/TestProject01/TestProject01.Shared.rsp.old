@@ -1,6 +1,6 @@
 /I "."
-/I "C:\Users\hawk5052\Documents\Unreal Projects\TestProject01\Intermediate\Build\Win64\UnrealEditor\Inc\TestProject01\UHT"
-/I "C:\Users\hawk5052\Documents\Unreal Projects\TestProject01\Source"
+/I "C:\Users\blan5568\Documents\GitHub\aph_unreal_model\TestProject01\Intermediate\Build\Win64\UnrealEditor\Inc\TestProject01\UHT"
+/I "C:\Users\blan5568\Documents\GitHub\aph_unreal_model\TestProject01\Source"
 /I "Runtime\Core\Public"
 /I "Runtime\Core\Internal"
 /I "Runtime\TraceLog\Public"

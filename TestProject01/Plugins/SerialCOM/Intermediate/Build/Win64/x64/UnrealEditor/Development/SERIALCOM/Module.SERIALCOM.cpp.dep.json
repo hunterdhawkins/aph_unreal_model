@@ -1,16 +1,14 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\blan5568\\documents\\github\\aph_unreal_model\\testproject01\\plugins\\serialcom\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\serialcom\\module.serialcom.cpp",
+        "Source": "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\serialcom\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\serialcom\\module.serialcom.cpp",
         "ProvidedModule": "",
-        "PCH": "c:\\users\\blan5568\\documents\\github\\aph_unreal_model\\testproject01\\intermediate\\build\\win64\\x64\\testproject01editor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
+        "PCH": "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\intermediate\\build\\win64\\x64\\testproject01editor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
         "Includes": [
-            "c:\\users\\blan5568\\documents\\github\\aph_unreal_model\\testproject01\\plugins\\serialcom\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\serialcom\\definitions.serialcom.h",
-            "c:\\users\\blan5568\\documents\\github\\aph_unreal_model\\testproject01\\plugins\\serialcom\\intermediate\\build\\win64\\unrealeditor\\inc\\serialcom\\uht\\serialcom.gen.cpp",
-            "c:\\users\\blan5568\\documents\\github\\aph_unreal_model\\testproject01\\plugins\\serialcom\\source\\serialcom\\public\\serialcom.h",
-            "c:\\users\\blan5568\\documents\\github\\aph_unreal_model\\testproject01\\plugins\\serialcom\\intermediate\\build\\win64\\unrealeditor\\inc\\serialcom\\uht\\serialcom.generated.h",
-            "c:\\users\\blan5568\\documents\\github\\aph_unreal_model\\testproject01\\plugins\\serialcom\\intermediate\\build\\win64\\unrealeditor\\inc\\serialcom\\uht\\serialcom.init.gen.cpp",
-            "c:\\users\\blan5568\\documents\\github\\aph_unreal_model\\testproject01\\plugins\\serialcom\\source\\serialcom\\private\\serialcom.cpp",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\serialcom\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\serialcom\\definitions.serialcom.h",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\serialcom\\source\\serialcom\\private\\serialcom.cpp",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\serialcom\\source\\serialcom\\public\\serialcom.h",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\serialcom\\intermediate\\build\\win64\\unrealeditor\\inc\\serialcom\\uht\\serialcom.generated.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\core\\public\\windows\\allowwindowsplatformtypes.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\core\\public\\windows\\windowshwrapper.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\core\\public\\windows\\prewindowsapi.h",
@@ -113,8 +111,8 @@
             "c:\\program files (x86)\\windows kits\\10\\include\\10.0.18362.0\\um\\ime_cmodes.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\core\\public\\windows\\postwindowsapi.h",
             "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\core\\public\\windows\\hidewindowsplatformtypes.h",
-            "c:\\users\\blan5568\\documents\\github\\aph_unreal_model\\testproject01\\plugins\\serialcom\\source\\serialcom\\private\\serialcommodule.cpp",
-            "c:\\users\\blan5568\\documents\\github\\aph_unreal_model\\testproject01\\plugins\\serialcom\\source\\serialcom\\public\\serialcommodule.h"
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\serialcom\\source\\serialcom\\private\\serialcommodule.cpp",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\serialcom\\source\\serialcom\\public\\serialcommodule.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

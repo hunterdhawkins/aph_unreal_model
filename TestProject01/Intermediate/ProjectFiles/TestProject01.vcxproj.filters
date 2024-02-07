@@ -33,36 +33,246 @@
     <Filter Include="Plugins">
       <UniqueIdentifier>{BB38096A-B391-30DC-A0D4-4F3EA6B44507}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Plugins\MqttUtilities">
+      <UniqueIdentifier>{3745877F-3C63-3A79-98AD-E222D85D2D2B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\MqttUtilities\Source">
+      <UniqueIdentifier>{0B14B336-E7BF-37E0-94A1-B20CE1453419}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\MqttUtilities\Source\MqttUtilities">
+      <UniqueIdentifier>{D1989AE9-1AFC-3F44-A693-3F7F82DEF8CF}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\MqttUtilities.Build.cs">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities</Filter>
+    </None>
+    <None Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\MqttUtilities_Android_UPL.xml">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities</Filter>
+    </None>
+    <None Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\MqttUtilities_IOS_UPL.xml">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities</Filter>
+    </None>
+    <Filter Include="Plugins\MqttUtilities\Source\MqttUtilities\Private">
+      <UniqueIdentifier>{9BEAF30B-4621-31B6-AEE4-B4F88F274292}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\MqttClientBase.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\MqttClientBase.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\MqttUtilitiesBPL.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\MqttUtilitiesModule.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\MqttUtilities\Source\MqttUtilities\Private\Android">
+      <UniqueIdentifier>{731F3A6D-4682-3BC9-9EA7-DBA55F192901}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Android\MqttClient.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Android</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Android\MqttClient.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Android</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Android\MqttClientHolder.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Android</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Android\MqttClientHolder.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Android</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\MqttUtilities\Source\MqttUtilities\Private\Android\Java">
+      <UniqueIdentifier>{E8FC218F-C5CF-3702-BBA7-E0047F6693F2}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Android\Java\MqttHelper.java">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Android\Java</Filter>
+    </None>
+    <Filter Include="Plugins\MqttUtilities\Source\MqttUtilities\Private\Android\Utils">
+      <UniqueIdentifier>{B30DECCF-E4B5-3B02-B26C-62762906113F}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Android\Utils\ConversionUtils.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Android\Utils</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Android\Utils\ConversionUtils.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Android\Utils</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\MqttUtilities\Source\MqttUtilities\Private\IOS">
+      <UniqueIdentifier>{DF069CEC-2C24-394F-9757-4A4AA0E45062}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\IOS\MqttClient.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\IOS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\IOS\MqttClient.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\IOS</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\IOS\MqttDelegate.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\IOS</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\IOS\MqttDelegate.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\IOS</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\MqttUtilities\Source\MqttUtilities\Private\IOS\Utils">
+      <UniqueIdentifier>{1FA70EE4-ABF9-38BA-BFAE-3F827A5E4380}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\IOS\Utils\ConversionUtils.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\IOS\Utils</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\IOS\Utils\ConversionUtils.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\IOS\Utils</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux">
+      <UniqueIdentifier>{3AB3CC35-0950-367E-A2D9-CC13676A9569}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux\MqttClient.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux\MqttClient.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux\MqttClientImpl.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux\MqttClientImpl.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux\MqttRunnable.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux\MqttRunnable.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux\MqttTask.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux\MqttTask.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux\Utils">
+      <UniqueIdentifier>{A6E5D143-04D5-3BE8-B4C8-5A6F1D5AA828}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux\Utils\StringUtils.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux\Utils</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux\Utils\StringUtils.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Linux\Utils</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac">
+      <UniqueIdentifier>{D85E1D84-222B-3323-8429-6600B850D48A}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac\MqttClient.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac\MqttClient.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac\MqttClientImpl.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac\MqttClientImpl.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac\MqttRunnable.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac\MqttRunnable.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac\MqttTask.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac\MqttTask.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac\Utils">
+      <UniqueIdentifier>{2505867B-FD8B-3F27-AF67-27CB91D49960}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac\Utils\StringUtils.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac\Utils</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac\Utils\StringUtils.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Mac\Utils</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows">
+      <UniqueIdentifier>{793FBE51-C9A0-3738-B7CC-6DA533827C0D}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows\MqttClient.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows\MqttClient.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows\MqttClientImpl.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows\MqttClientImpl.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows\MqttRunnable.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows\MqttRunnable.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows\MqttTask.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows\MqttTask.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows\Utils">
+      <UniqueIdentifier>{FB0AEDA7-6356-347A-B1DB-341FCD5BAA14}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows\Utils\StringUtils.cpp">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows\Utils</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows\Utils\StringUtils.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Private\Windows\Utils</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\MqttUtilities\Source\MqttUtilities\Public">
+      <UniqueIdentifier>{23A80BD3-DEBC-3EC6-8C49-814C27F2FD1E}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Public\IMqttUtilitiesModule.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Public\MqttUtilitiesBPL.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Public</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\MqttUtilities\Source\MqttUtilities\Public\Entities">
+      <UniqueIdentifier>{3CC82732-45F5-3EBD-971A-D778A4C9E9F9}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Public\Entities\MqttClientConfig.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Public\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Public\Entities\MqttConnectionData.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Public\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Public\Entities\MqttMessage.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Public\Entities</Filter>
+    </ClInclude>
+    <Filter Include="Plugins\MqttUtilities\Source\MqttUtilities\Public\Interface">
+      <UniqueIdentifier>{6C86BB24-9B7B-3F56-B854-EB11621AFDCA}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Plugins\MqttUtilities\Source\MqttUtilities\Public\Interface\MqttClientInterface.h">
+      <Filter>Plugins\MqttUtilities\Source\MqttUtilities\Public\Interface</Filter>
+    </ClInclude>
+    <None Include="..\..\Plugins\MqttUtilities\MqttUtilities.uplugin">
+      <Filter>Plugins\MqttUtilities</Filter>
+    </None>
+    <Filter Include="Plugins\MqttUtilities\Config">
+      <UniqueIdentifier>{2B4EC2B4-C6CA-3840-91EB-8800718D3EF1}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\MqttUtilities\Config\FilterPlugin.ini">
+      <Filter>Plugins\MqttUtilities\Config</Filter>
+    </None>
+    <Filter Include="Plugins\MqttUtilities\Resources">
+      <UniqueIdentifier>{38DC8690-8C13-3D55-9448-ECD01F542AD5}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\MqttUtilities\Resources\Icon128.png">
+      <Filter>Plugins\MqttUtilities\Resources</Filter>
+    </None>
     <Filter Include="Plugins\SerialCOM">
       <UniqueIdentifier>{C6BE65BD-0953-312A-8B2B-EE00A4C6A28B}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Plugins\SerialCOM\Source">
-      <UniqueIdentifier>{E7AAFC1F-FA83-3C19-A1AC-5DBCC46DD3F4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Plugins\SerialCOM\Source\SERIALCOM">
-      <UniqueIdentifier>{E0187182-8C62-3925-909A-35EE623F2053}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\SerialCOM\Source\SERIALCOM\SERIALCOM.Build.cs">
-      <Filter>Plugins\SerialCOM\Source\SERIALCOM</Filter>
-    </None>
-    <Filter Include="Plugins\SerialCOM\Source\SERIALCOM\Private">
-      <UniqueIdentifier>{CA9E0E79-7822-3B39-8BF5-D2047E2796C4}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Plugins\SerialCOM\Source\SERIALCOM\Private\SerialCom.cpp">
-      <Filter>Plugins\SerialCOM\Source\SERIALCOM\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\SerialCOM\Source\SERIALCOM\Private\SERIALCOMModule.cpp">
-      <Filter>Plugins\SerialCOM\Source\SERIALCOM\Private</Filter>
-    </ClCompile>
-    <Filter Include="Plugins\SerialCOM\Source\SERIALCOM\Public">
-      <UniqueIdentifier>{6DA81990-396C-31C8-9E3E-E0D20F43DEC1}</UniqueIdentifier>
-    </Filter>
-    <ClInclude Include="..\..\Plugins\SerialCOM\Source\SERIALCOM\Public\SerialCom.h">
-      <Filter>Plugins\SerialCOM\Source\SERIALCOM\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\SerialCOM\Source\SERIALCOM\Public\SERIALCOMModule.h">
-      <Filter>Plugins\SerialCOM\Source\SERIALCOM\Public</Filter>
-    </ClInclude>
     <None Include="..\..\Plugins\SerialCOM\SERIALCOM.uplugin">
       <Filter>Plugins\SerialCOM</Filter>
     </None>
@@ -102,6 +312,33 @@
     <None Include="..\..\Plugins\UDPWrapper\Resources\Icon128.png">
       <Filter>Plugins\UDPWrapper\Resources</Filter>
     </None>
+    <Filter Include="Plugins\SerialCOM\Source">
+      <UniqueIdentifier>{E7AAFC1F-FA83-3C19-A1AC-5DBCC46DD3F4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\SerialCOM\Source\SERIALCOM">
+      <UniqueIdentifier>{E0187182-8C62-3925-909A-35EE623F2053}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\SerialCOM\Source\SERIALCOM\SERIALCOM.Build.cs">
+      <Filter>Plugins\SerialCOM\Source\SERIALCOM</Filter>
+    </None>
+    <Filter Include="Plugins\SerialCOM\Source\SERIALCOM\Private">
+      <UniqueIdentifier>{CA9E0E79-7822-3B39-8BF5-D2047E2796C4}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\SerialCOM\Source\SERIALCOM\Private\SerialCom.cpp">
+      <Filter>Plugins\SerialCOM\Source\SERIALCOM\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\SerialCOM\Source\SERIALCOM\Private\SERIALCOMModule.cpp">
+      <Filter>Plugins\SerialCOM\Source\SERIALCOM\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\SerialCOM\Source\SERIALCOM\Public">
+      <UniqueIdentifier>{6DA81990-396C-31C8-9E3E-E0D20F43DEC1}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Plugins\SerialCOM\Source\SERIALCOM\Public\SerialCom.h">
+      <Filter>Plugins\SerialCOM\Source\SERIALCOM\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\SerialCOM\Source\SERIALCOM\Public\SERIALCOMModule.h">
+      <Filter>Plugins\SerialCOM\Source\SERIALCOM\Public</Filter>
+    </ClInclude>
     <Filter Include="Plugins\SocketIOClient\Source">
       <UniqueIdentifier>{0DBA04D1-DA9B-3116-BF10-7EBF36B18732}</UniqueIdentifier>
     </Filter>
