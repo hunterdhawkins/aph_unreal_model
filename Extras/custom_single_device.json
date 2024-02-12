@@ -1,0 +1,121 @@
+{
+    "server_list": {
+        "server": {
+            "comm": "tcp",
+            "host": "0.0.0.0",
+            "port": 5020,
+            "ignore_missing_slaves": false,
+            "framer": "socket",
+            "identity": {
+                "VendorName": "pymodbus",
+                "ProductCode": "PM",
+                "VendorUrl": "https://github.com/pymodbus-dev/pymodbus/",
+                "ProductName": "pymodbus Server",
+                "ModelName": "pymodbus Server",
+                "MajorMinorRevision": "3.1.0"
+            }
+        },
+        "server_try_serial": {
+            "comm": "serial",
+            "port": "/dev/tty0",
+            "stopbits": 1,
+            "bytesize": 8,
+            "parity": "N",
+            "baudrate": 9600,
+            "timeout": 3,
+            "reconnect_delay": 2,
+            "framer": "rtu",
+            "identity": {
+                "VendorName": "pymodbus",
+                "ProductCode": "PM",
+                "VendorUrl": "https://github.com/pymodbus-dev/pymodbus/",
+                "ProductName": "pymodbus Server",
+                "ModelName": "pymodbus Server",
+                "MajorMinorRevision": "3.1.0"
+            }
+        },
+        "server_try_tls": {
+            "comm": "tls",
+            "host": "0.0.0.0",
+            "port": 5020,
+            "certfile": "certificates/pymodbus.crt",
+            "keyfile": "certificates/pymodbus.key",
+            "ignore_missing_slaves": false,
+            "framer": "tls",
+            "identity": {
+                "VendorName": "pymodbus",
+                "ProductCode": "PM",
+                "VendorUrl": "https://github.com/pymodbus-dev/pymodbus/",
+                "ProductName": "pymodbus Server",
+                "ModelName": "pymodbus Server",
+                "MajorMinorRevision": "3.1.0"
+            }
+        },
+        "server_test_try_udp": {
+            "comm": "udp",
+            "host": "0.0.0.0",
+            "port": 5020,
+            "ignore_missing_slaves": false,
+            "framer": "socket",
+            "identity": {
+                "VendorName": "pymodbus",
+                "ProductCode": "PM",
+                "VendorUrl": "https://github.com/pymodbus-dev/pymodbus/",
+                "ProductName": "pymodbus Server",
+                "ModelName": "pymodbus Server",
+                "MajorMinorRevision": "3.1.0"
+            }
+        }
+    },
+    "device_list": {
+        "my device": {
+            "setup": {
+                "co size": 63000,
+                "di size": 63000,
+                "hr size": 63000,
+                "ir size": 63000,
+                "shared blocks": true,
+                "type exception": true,
+                "defaults": {
+                    "value": {
+                        "bits": 0,
+                        "uint16": 0,
+                        "uint32": 0,
+                        "float32": 0.0,
+                        "string": " "
+                    },
+                    "action": {
+                        "bits": null,
+                        "uint16": "increment",
+                        "uint32": "increment",
+                        "float32": "increment",
+                        "string": null
+                    }
+                }
+            },
+            "invalid": [
+                
+            ],
+            "write": [
+                1,2,3,4,5,6,7
+            ],
+            "bits": [
+                {"addr": 1, "value": 22}
+            ],
+            "uint16": [
+                {"addr": 2, "value": 1111, "action": null}
+            ],
+            "uint32": [
+                {"addr": [3,4], "value": 2222, "action": null}
+            ],
+            "float32": [
+                {"addr": [5,6], "value": 404.50}
+            ],
+            "string": [
+                {"addr": 7, "value": "YA"}
+            ],
+            "repeat": [
+            ]
+        }
+    }
+}
