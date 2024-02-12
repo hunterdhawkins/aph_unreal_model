@@ -26,16 +26,6 @@ def read_json_config_file():
       data = json.load(f)
     return data
  
- 
-def create_custom_config_file():
-   # Some documentation notes:
-   # Bits: Registers can be singulars (first entry) or arrays (second entry)
-   # Uint16: Registers can be singulars (first entry) or arrays (second entry)
-   # Uint32: Registers can only be arrays in multiples of 2
-   # Float32: Registers can only be arrays in multiples of 2
-   # Strings: Register 1 is a string of 2 chars, Register 2 is a string of 4 chars, Register 3 is a string of 10 chars with the value ‘’A_B_C_D_E_’’.
-   pass
-
 
 def run_web_server():
     while(True):
@@ -46,9 +36,29 @@ def run_web_server():
 
 
 def define_custom_config_values(config_file, NUM_OF_BITS, NUM_OF_UINT16, NUM_OF_UINT32, NUM_OF_FLOAT32, NUM_OF_STRINGS, NUM_OF_REG=10):
-    # print(config_file["device_list"]["my device"]["write"])
-    config_file["device_list"]["my device"]["write"] = [x for x in range(1, NUM_OF_REG+1)]
-    print(config_file["device_list"]["my device"]["write"])
+    # Some documentation notes:
+    # Bits: Registers can be singulars (first entry) or arrays (second entry)
+    # Uint16: Registers can be singulars (first entry) or arrays (second entry)
+    # Uint32: Registers can only be arrays in multiples of 2
+    # Float32: Registers can only be arrays in multiples of 2
+    # Strings: Register 1 is a string of 2 chars, Register 2 is a string of 4 chars, Register 3 is a string of 10 chars with the value ‘’A_B_C_D_E_’’.
+
+    # error check to see if num of registers is too small:
+    if NUM_OF_REG == (NUM_OF_BITS + NUM_OF_UINT16 + NUM_OF_UINT32 + NUM_OF_FLOAT32 + NUM_OF_STRINGS):
+        # Check if the two bit register are actually two bits:
+        if NUM_OF_UINT32 % 2 == 0 and NUM_OF_FLOAT32 % 2 ==0:
+            register_list = [x for x in range(1, NUM_OF_REG+1)]
+            # Set the number of writeable registers
+            config_file["device_list"]["my device"]["write"] = [register_list]
+
+            # set the number of bits
+            # config_file["device_list"]["my device"]["bits"] = []
+        else:
+            print("Incorrect increments of 2 for UINTS32 and FLOAT32")
+    
+    else:
+        print("Incorrect config settings, check num of registers")
+    
     print(config_file)
     
 
@@ -56,4 +66,5 @@ if __name__ == "__main__":
     # Read in the default config file
     default_config = read_json_config_file()
     # Define the number of register types
-    define_custom_config_values(default_config, 1, 1, 2, 2, 2)
+    define_custom_config_values(default_config, 2, 2, 2, 2, 2)
+    # run_web_server()
