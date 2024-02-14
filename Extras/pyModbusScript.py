@@ -43,7 +43,7 @@ def run_web_server(config_file_name):
        asyncio.run(run(config_file_name))
 
 
-def define_custom_config_values(config_file, NUM_OF_BITS, NUM_OF_UINT16, NUM_OF_UINT32, NUM_OF_FLOAT32, NUM_OF_STRINGS, NUM_OF_REG=10):
+def define_custom_config_values(config_file, NUM_OF_BITS, NUM_OF_UINT16, NUM_OF_UINT32, NUM_OF_FLOAT32, NUM_OF_STRINGS):
     # Some documentation notes:
     # Bits: Registers can be singulars (first entry) or arrays (second entry)
     # Uint16: Registers can be singulars (first entry) or arrays (second entry)
@@ -51,9 +51,7 @@ def define_custom_config_values(config_file, NUM_OF_BITS, NUM_OF_UINT16, NUM_OF_
     # Float32: Registers can only be arrays in multiples of 2
     # Strings: Register 1 is a string of 2 chars, Register 2 is a string of 4 chars
 
-    if NUM_OF_REG != (NUM_OF_BITS + NUM_OF_UINT16 + NUM_OF_UINT32 + NUM_OF_FLOAT32 + NUM_OF_STRINGS):
-        print("Incorrect config settings, check number of registers")
-        sys.exit(1)
+    NUM_OF_REG = NUM_OF_BITS + NUM_OF_UINT16 + NUM_OF_UINT32 + NUM_OF_FLOAT32 + NUM_OF_STRINGS
 
     if NUM_OF_UINT32 % 2 != 0 and NUM_OF_FLOAT32 % 2 != 0:
         print("Incorrect increments of 2 for UINTS32 and FLOAT32")
@@ -61,29 +59,37 @@ def define_custom_config_values(config_file, NUM_OF_BITS, NUM_OF_UINT16, NUM_OF_
 
     # This is a list of the total number of registers
     register_list = [x for x in range(1, NUM_OF_REG+1)]
+    chunk_up_write_registers = [register_list[x:x+2] for x in range(0, len(register_list), 2)]
     # Set the number of writeable registers
-    config_file["device_list"]["my device"]["write"] = [register_list]
+    config_file["device_list"]["my device"]["write"] = chunk_up_write_registers
     
+    # Chunk up registers into chunks of 2
+    chunk_up_bit_registers = [register_list[0:NUM_OF_BITS][x:x+2] for x in range(0, len(register_list[0:NUM_OF_BITS]), 2)]
     # Set the registers for the bits
-    config_file["device_list"]["my device"]["bits"] = [register_list[0:NUM_OF_BITS]]
+    config_file["device_list"]["my device"]["bits"] = chunk_up_bit_registers
     # Pop off our used number of registers for the bits
     register_list = list(set(register_list) - set(register_list[0:NUM_OF_BITS]))
     register_list.sort()
     
+    chunk_up_uint16 = [register_list[0:NUM_OF_UINT16][x:x+2] for x in range(0, len(register_list[0:NUM_OF_UINT16]), 2)]
     # Set the registers for the uint16
-    config_file["device_list"]["my device"]["uint16"] = [register_list[0:NUM_OF_UINT16]]
+    config_file["device_list"]["my device"]["uint16"] = chunk_up_uint16
     # Pop off our used registers for the uint16
     register_list = list(set(register_list) - set(register_list[0:NUM_OF_UINT16]))
     register_list.sort()
         
+    # Chunk up registers into chunks of 2
+    chunk_up_uint32_registers = [register_list[0:NUM_OF_UINT32][x:x+2] for x in range(0, len(register_list[0:NUM_OF_UINT32]), 2)]
     # Set the registers for the uint32
-    config_file["device_list"]["my device"]["uint32"] = [register_list[0:NUM_OF_UINT32]]
+    config_file["device_list"]["my device"]["uint32"] = chunk_up_uint32_registers
     # Pop off our used registers for the uint32
     register_list = list(set(register_list) - set(register_list[0:NUM_OF_UINT32]))
     register_list.sort()
         
+    # Chunk up registers into chunks of 2
+    chunk_up_float32_registers = [register_list[0:NUM_OF_FLOAT32][x:x+2] for x in range(0, len(register_list[0:NUM_OF_FLOAT32]), 2)]
     # Set the registers for the float32
-    config_file["device_list"]["my device"]["float32"] = [register_list[0:NUM_OF_FLOAT32]]
+    config_file["device_list"]["my device"]["float32"] = chunk_up_float32_registers
     # Pop off our used registers for the float32
     register_list = list(set(register_list) - set(register_list[0:NUM_OF_FLOAT32]))
     register_list.sort()
