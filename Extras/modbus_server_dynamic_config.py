@@ -11,7 +11,7 @@ async def run(config_file_name):
       modbus_server = "server",
       modbus_device = "my device",
       http_host = "localhost",
-      http_port =  8000,
+      http_port =  8081,
       json_file = config_file_name
     )
 
