@@ -1,21 +1,29 @@
 import requests
 
-headers = {"Content-Type": "application/json; charset=utf-8"}
-
 url = 'http://localhost:8081/api/registers'
 
-myobj = {
-    "register": 4,
-    "value": 15,
-    "submit": "Set"
-}
+
+def test_sending_data_to_webserver():
+    myobj = {
+        "register": 4,
+        "value": 22,
+        "submit": "Set"
+    }
+
+    r = requests.get(url, params=myobj)
 
 
-r = requests.get(url, params=myobj)
+def write_data_to_webserver(data_json_object):
+    r = requests.get(url, params=data_json_object)
 
 
+def main():
+    test_sending_data_to_webserver()
+    
 
-
+if __name__ == "__main__":
+    main()
+    
 
 '''
 print(requests.post(url, headers=headers, json = myobj))
