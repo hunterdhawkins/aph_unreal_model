@@ -1,6 +1,7 @@
 '''
     In this script we are leveraging the code Dr. Daniel Conte de Leon provided us
 '''
+'''
 import paho.mqtt.publish
 import paho.mqtt.client
 import time
@@ -28,7 +29,74 @@ def on_publish( client, userdata, mid ):
 
 def main( ):
     post_100_timestamp_messages( );
-  
- 
+'''
+'''
+from pymodbus.client import ModbusTcpClient
+
+def main():
+	client = ModbusTcpClient('localhost') 
+	client.connect()        
+	result = client.read_coils(1, 1, slave=1)
+	print(result.bits[0])
+	client.close()                             
+
 if __name__ == '__main__':
     main( );
+'''
+
+import pymodbus.client as ModbusClient
+from pymodbus import (
+    ExceptionResponse,
+    Framer,
+    ModbusException,
+    pymodbus_apply_logging_config,
+)
+
+
+def run_sync_simple_client(host, port, framer=Framer.SOCKET):
+    """Run sync client."""
+    # activate debugging
+    pymodbus_apply_logging_config("DEBUG")
+
+    print("get client")
+
+    client = ModbusClient.ModbusTcpClient(
+        host,
+        port=port,
+        framer=framer,
+        # timeout=10,
+        # retries=3,
+        # retry_on_empty=False,y
+        # source_address=("localhost", 0),
+    )
+
+    print("connect to server")
+    client.connect()
+
+    print("get and verify data")
+    try:
+        # rr = client.read_coils(1, 1, slave=1)
+        # rr = client.read_coils(1)
+        rr = client.read_input_registers(1)
+        print(rr.__dict__)
+        print(rr.registers)
+    except ModbusException as exc:
+        print(f"Received ModbusException({exc}) from library")
+        client.close()
+        return
+    if rr.isError():
+        print(f"Received Modbus library error({rr})")
+        client.close()
+        return
+    if isinstance(rr, ExceptionResponse):
+        print(f"Received Modbus library exception ({rr})")
+        # THIS IS NOT A PYTHON EXCEPTION, but a valid modbus message
+        client.close()
+
+    print("close connection")
+    client.close()
+
+
+if __name__ == "__main__":
+    # run_sync_simple_client("127.0.0.1", "5020")
+    run_sync_simple_client("127.0.0.1", "5020")
