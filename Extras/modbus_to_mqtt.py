@@ -53,31 +53,37 @@ from pymodbus import (
 )
 
 
-def run_sync_simple_client(host, port, framer=Framer.SOCKET):
-    """Run sync client."""
+def create_tag_structure():
+	pass
+
+def connect_to_client(host, port, framer=Framer.SOCKET):
+	"""Run sync client."""
     # activate debugging
-    pymodbus_apply_logging_config("DEBUG")
+	pymodbus_apply_logging_config("DEBUG")
 
-    print("get client")
+	print("get client")
 
-    client = ModbusClient.ModbusTcpClient(
-        host,
-        port=port,
-        framer=framer,
-        # timeout=10,
-        # retries=3,
-        # retry_on_empty=False,y
-        # source_address=("localhost", 0),
-    )
+	client = ModbusClient.ModbusTcpClient(
+		host,
+		port=port,
+		framer=framer,
+		# timeout=10,
+		# retries=3,
+		# retry_on_empty=False,y
+		# source_address=("localhost", 0),
+	)
 
-    print("connect to server")
-    client.connect()
+	print("connecting to client")
+	client.connect()
 
-    print("get and verify data")
+	print("get and verify data")
+
+	return client
+
+
+def read_values(client):
     try:
-        # rr = client.read_coils(1, 1, slave=1)
-        # rr = client.read_coils(1)
-        rr = client.read_input_registers(1)
+        rr = client.read_input_registers(1,2)
         print(rr.__dict__)
         print(rr.registers)
     except ModbusException as exc:
@@ -93,10 +99,12 @@ def run_sync_simple_client(host, port, framer=Framer.SOCKET):
         # THIS IS NOT A PYTHON EXCEPTION, but a valid modbus message
         client.close()
 
-    print("close connection")
-    client.close()
+
+def close_client_connection():
+	print("close connection")
+	client.close()
 
 
 if __name__ == "__main__":
-    # run_sync_simple_client("127.0.0.1", "5020")
-    run_sync_simple_client("127.0.0.1", "5020")
+    client = connect_to_client("127.0.0.1", "5020")
+    read_values(client)
