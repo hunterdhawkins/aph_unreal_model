@@ -6,6 +6,16 @@ from pymodbus.server import ModbusSimulatorServer
 
 # PyModBus Documentation: https://pymodbus.readthedocs.io/en/latest/source/library/simulator/config.html
 
+# Establish memory values
+memory_dict = {
+    "num_of_bits": 2,
+    "num_of_uint16": 2,
+    "num_of_uint32": 2,
+    "num_of_float32": 2,
+    "num_of_strings": 2,
+}
+
+
 async def run(config_file_name):
    simulator = ModbusSimulatorServer(
       modbus_server = "server",
@@ -30,8 +40,14 @@ def read_json_config_file():
     with open('blank_device_config.json', 'r') as f:
       data = json.load(f)
     return data
- 
 
+ 
+def write_memory_config_file():
+    config_file_name = "memory_config.json"
+    with open(config_file_name, 'w') as json_file:
+        json.dump(memory_dict, json_file)
+
+ 
 def run_web_server(config_file_name):
     # We only need to call this function for windows
     # Based on my understanding this is based upon how windows and linux
@@ -104,10 +120,14 @@ def define_custom_config_values(config_file, NUM_OF_BITS, NUM_OF_UINT16, NUM_OF_
 
 
 if __name__ == "__main__":
+    # write our configuration file for the memory management
+    write_memory_config_file()
+    
     # Read in the default config file
     default_config = read_json_config_file()
     # Define the number of register types
-    custom_config_file = define_custom_config_values(default_config, 2, 2, 2, 2, 2)
+    custom_config_file = define_custom_config_values(default_config, memory_dict["num_of_bits"], memory_dict["num_of_uint16"], memory_dict["num_of_uint32"], memory_dict["num_of_float32"], memory_dict["num_of_strings"])
     file_name = write_json_config_file(custom_config_file)
+    
     run_web_server(file_name)
     # asyncio.run(run())
