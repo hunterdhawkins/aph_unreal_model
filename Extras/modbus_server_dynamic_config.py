@@ -7,12 +7,15 @@ from pymodbus.server import ModbusSimulatorServer
 # PyModBus Documentation: https://pymodbus.readthedocs.io/en/latest/source/library/simulator/config.html
 
 # Establish memory values
+# TODO: Need to address in the future if num_of_bits is odd
+# chunk it up into two element lists until there is 1 item left
+# then append the last item to the parent list
 memory_dict = {
     "num_of_bits": 2,
-    "num_of_uint16": 2,
-    "num_of_uint32": 2,
+    "num_of_uint16": 6,
+    "num_of_uint32": 0,
     "num_of_float32": 2,
-    "num_of_strings": 2,
+    "num_of_strings": 0,
 }
 
 
@@ -94,13 +97,14 @@ def define_custom_config_values(config_file, NUM_OF_BITS, NUM_OF_UINT16, NUM_OF_
     register_list = list(set(register_list) - set(register_list[0:NUM_OF_UINT16]))
     register_list.sort()
         
-    # Chunk up registers into chunks of 2
-    chunk_up_uint32_registers = [register_list[0:NUM_OF_UINT32][x:x+2] for x in range(0, len(register_list[0:NUM_OF_UINT32]), 2)]
-    # Set the registers for the uint32
-    config_file["device_list"]["my device"]["uint32"] = chunk_up_uint32_registers
-    # Pop off our used registers for the uint32
-    register_list = list(set(register_list) - set(register_list[0:NUM_OF_UINT32]))
-    register_list.sort()
+    if NUM_OF_UINT32 != 0:
+        # Chunk up registers into chunks of 2
+        chunk_up_uint32_registers = [register_list[0:NUM_OF_UINT32][x:x+2] for x in range(0, len(register_list[0:NUM_OF_UINT32]), 2)]
+        # Set the registers for the uint32
+        config_file["device_list"]["my device"]["uint32"] = chunk_up_uint32_registers
+        # Pop off our used registers for the uint32
+        register_list = list(set(register_list) - set(register_list[0:NUM_OF_UINT32]))
+        register_list.sort()
         
     # Chunk up registers into chunks of 2
     chunk_up_float32_registers = [register_list[0:NUM_OF_FLOAT32][x:x+2] for x in range(0, len(register_list[0:NUM_OF_FLOAT32]), 2)]
@@ -110,10 +114,11 @@ def define_custom_config_values(config_file, NUM_OF_BITS, NUM_OF_UINT16, NUM_OF_
     register_list = list(set(register_list) - set(register_list[0:NUM_OF_FLOAT32]))
     register_list.sort()
     
-    # Set the registers for the float32
-    config_file["device_list"]["my device"]["string"] = [register_list[0:NUM_OF_STRINGS]]
-    # Pop off our used registers for the float32
-    register_list = list(set(register_list) - set(register_list[0:NUM_OF_STRINGS]))
+    if NUM_OF_STRINGS != 0:
+        # Set the registers for the float32
+        config_file["device_list"]["my device"]["string"] = [register_list[0:NUM_OF_STRINGS]]
+        # Pop off our used registers for the float32
+        register_list = list(set(register_list) - set(register_list[0:NUM_OF_STRINGS]))
 
     print(config_file)
     return config_file
@@ -126,7 +131,14 @@ if __name__ == "__main__":
     # Read in the default config file
     default_config = read_json_config_file()
     # Define the number of register types
-    custom_config_file = define_custom_config_values(default_config, memory_dict["num_of_bits"], memory_dict["num_of_uint16"], memory_dict["num_of_uint32"], memory_dict["num_of_float32"], memory_dict["num_of_strings"])
+    custom_config_file = define_custom_config_values(
+                                                        default_config,
+                                                        memory_dict["num_of_bits"],
+                                                        memory_dict["num_of_uint16"],
+                                                        memory_dict["num_of_uint32"],
+                                                        memory_dict["num_of_float32"],
+                                                        memory_dict["num_of_strings"]
+                                                    )
     file_name = write_json_config_file(custom_config_file)
     
     run_web_server(file_name)
