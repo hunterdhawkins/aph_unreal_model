@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\intermediate\\build\\win64\\unrealeditor\\inc\\siojson\\uht\\siojtypes.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\intermediate\\build\\win64\\x64\\testproject01editor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\siojson\\definitions.siojson.h",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\source\\siojson\\public\\siojtypes.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\coreutility\\module.coreutility.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\intermediate\\build\\win64\\x64\\testproject01editor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\coreutility\\definitions.coreutility.h",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\source\\coreutility\\private\\cublueprintlibrary.cpp",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\source\\coreutility\\public\\cublueprintlibrary.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\sound\\soundwaveprocedural.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\soundwaveprocedural.generated.h",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\intermediate\\build\\win64\\unrealeditor\\inc\\coreutility\\uht\\cublueprintlibrary.generated.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\imagewrapper\\public\\iimagewrapper.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\imagewrapper\\public\\iimagewrappermodule.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\public\\opusaudioinfo.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\engine\\public\\audiodecompress.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\developer\\targetplatform\\public\\interfaces\\iaudioformat.h",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\source\\coreutility\\public\\culambdarunnable.h",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\source\\coreutility\\public\\cuopuscoder.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\thirdparty\\libopus\\opus-1.1\\include\\opus.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\thirdparty\\libopus\\opus-1.1\\include\\opus_types.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\thirdparty\\libopus\\opus-1.1\\include\\opus_defines.h",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\source\\coreutility\\public\\cumeasuretimer.h",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\source\\coreutility\\private\\cufilecomponent.cpp",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\source\\coreutility\\public\\cufilecomponent.h",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\intermediate\\build\\win64\\unrealeditor\\inc\\coreutility\\uht\\cufilecomponent.generated.h",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\source\\coreutility\\private\\cufilesubsystem.cpp",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\source\\coreutility\\public\\cufilesubsystem.h",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\intermediate\\build\\win64\\unrealeditor\\inc\\coreutility\\uht\\cufilesubsystem.generated.h",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\source\\coreutility\\private\\culambdarunnable.cpp",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\source\\coreutility\\private\\cumeasuretimer.cpp",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\source\\coreutility\\private\\cuopuscoder.cpp",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\source\\coreutility\\private\\fcoreutility.cpp",
+            "c:\\users\\hawk5052\\documents\\unreal projects\\aph_unreal_model\\testproject01\\plugins\\socketioclient\\source\\coreutility\\public\\icoreutility.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
