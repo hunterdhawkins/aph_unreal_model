@@ -13,7 +13,7 @@ from pymodbus.server import ModbusSimulatorServer
 memory_dict = {
     "num_of_bits": 2,
     "num_of_uint16": 6,
-    "num_of_uint32": 0,
+    "num_of_uint32": 2,
     "num_of_float32": 2,
     "num_of_strings": 0,
 }
