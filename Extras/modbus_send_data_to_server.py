@@ -6,7 +6,7 @@ url = 'http://localhost:8081/api/registers'
 def test_sending_data_to_webserver():
     myobj = {
         "register": 1,
-        "value": 0,
+        "value": 1,
         "submit": "Set"
     }
 

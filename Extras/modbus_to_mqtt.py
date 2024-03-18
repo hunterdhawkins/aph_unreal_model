@@ -59,7 +59,7 @@ def read_memory_config_file():
 def connect_to_client(host, port, framer=Framer.SOCKET):
 	"""Run sync client."""
     # activate debugging
-	pymodbus_apply_logging_config("DEBUG")
+	# pymodbus_apply_logging_config("DEBUG")
 
 	# print("get client")
 
@@ -104,23 +104,28 @@ def read_values(client, memory_dict, NUM_OF_REG):
     uint16_values = client.read_holding_registers(uint16_registers[0], len(uint16_registers))
     print("Uint16 Values: ", uint16_values.registers)
     
-    print(register_list)
+    uint32_registers = register_list[0:memory_dict["num_of_uint32"]]
+    register_list = list(set(register_list) - set(register_list[0:memory_dict["num_of_uint32"]]))
+    register_list.sort()
+    uint32_values = client.read_holding_registers(uint32_registers[0], len(uint32_registers))
+    print("Uint32 Values: ", uint32_values.registers)
 
+    float32_registers = register_list[0:memory_dict["num_of_float32"]]
+    register_list = list(set(register_list) - set(register_list[0:memory_dict["num_of_float32"]]))
+    register_list.sort()
+    float32_values = client.read_holding_registers(float32_registers[0], len(float32_registers))
+    print("float32 Values: ", float32_values.registers)
 
+    # Strings are currently broken but this shouldn't be an issue for now
     '''
-    except ModbusException as exc:
-        print(f"Received ModbusException({exc}) from library")
-        client.close()
-        return
-    if rr.isError():
-        print(f"Received Modbus library error({rr})")
-        client.close()
-        return
-    if isinstance(rr, ExceptionResponse):
-        print(f"Received Modbus library exception ({rr})")
-        # THIS IS NOT A PYTHON EXCEPTION, but a valid modbus message
-        client.close()
+    string_registers = register_list[0:memory_dict["num_of_strings"]]
+    register_list = list(set(register_list) - set(register_list[0:memory_dict["num_of_strings"]]))
+    register_list.sort()
+    string_values = client.read_holding_registers(string_registers[0], len(string_registers))
+    print("string Values: ", string_values.registers)
     '''
+
+    # print(register_list)
 
 
 def close_client_connection():
