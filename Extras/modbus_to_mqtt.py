@@ -1,5 +1,7 @@
 import time
 import json
+import time
+import ssl
 import pymodbus.client as ModbusClient
 from pymodbus import (
     ExceptionResponse,
@@ -7,7 +9,24 @@ from pymodbus import (
     ModbusException,
     pymodbus_apply_logging_config,
 )
+import paho.mqtt.publish
+import paho.mqtt.client
+from datetime import datetime
 
+
+CONST_broker_name = "localhost"
+CONST_broker_port = 1883
+CONST_clientID = "CID"
+CONST_topicStr = "ExampleTopic"
+
+
+def post_json_to_unreal(messageStr):
+    print( f"-- Publishing: {messageStr}, to Topic: {CONST_topicStr}, to Broker: {CONST_broker_name}.")
+    paho.mqtt.publish.single( CONST_topicStr, payload=messageStr, qos=0, retain=False, hostname=CONST_broker_name, port=CONST_broker_port, client_id=CONST_clientID, keepalive=60, will=None, auth=None, tls=None, protocol=paho.mqtt.client.MQTTv5, transport="tcp" )
+
+'''
+    MODBUS BASED FUNCTIONS
+'''
 
 def create_tag_structure(memory_dict):
 
@@ -154,5 +173,6 @@ if __name__ == "__main__":
 
     while True:
         result_dict = read_values(client, memory_dict, NUM_OF_REG)
-        create_tag_structure(result_dict)
+        tag_structure = create_tag_structure(result_dict)
+        post_json_to_unreal(tag_structure)
         time.sleep(3)
