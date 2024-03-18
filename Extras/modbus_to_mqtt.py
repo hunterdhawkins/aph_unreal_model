@@ -49,7 +49,10 @@ def create_tag_structure(memory_dict):
                 tag_structure[string_num] = None
 
     print(tag_structure)
-    return tag_structure
+
+    json_tag_structure = json.dumps(tag_structure)
+
+    return json_tag_structure
 
 
 def read_memory_config_file():
