@@ -68,6 +68,9 @@ def create_tag_structure(memory_dict):
                 tag_structure[string_num] = None
 
     print(tag_structure)
+    
+    now = datetime.now()
+    tag_structure["timestamp"] = now.strftime("%m/%d/%Y, %H:%M:%S")
 
     json_tag_structure = json.dumps(tag_structure)
 
