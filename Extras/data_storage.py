@@ -1,7 +1,17 @@
 import json
+import time
+import ssl
 from peewee import *
 from playhouse.sqlite_ext import *
-from datetime import date
+import paho.mqtt.subscribe
+import paho.mqtt.client
+from datetime import datetime
+
+# Constants:
+CONST_broker_name = "localhost"
+CONST_broker_port = 1883
+CONST_clientID = "CID"
+CONST_topicStr = "ExampleTopic"
 
 # TODO: In future may want to make db not global, but for now it works
 
@@ -32,13 +42,18 @@ def save_reading():
 def connect_to_db():
     db.connect()
 
+# Callbacks:
+  
+def on_message( client, userdata, message ):
+    print( f"-- Callback: Received message: {str( message.payload )}, on Topic: {str(message.topic )}." );  
+   
+
 def main():
     connect_to_db()
     db.create_tables([APH])
-    '''
-    memory_config_dict = read_memory_config_file()
-    print(memory_config_dict)
-    '''
+
+    paho.mqtt.subscribe.callback( on_message, CONST_topicStr, hostname=CONST_broker_name )
+
 
 
 if __name__ == '__main__':
