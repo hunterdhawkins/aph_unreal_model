@@ -45,7 +45,14 @@ def connect_to_db():
 # Callbacks:
   
 def on_message( client, userdata, message ):
-    print( f"-- Callback: Received message: {str( message.payload )}, on Topic: {str(message.topic )}." );  
+    result_json = None
+    print(str(message.payload));
+    decoded_json = message.payload.decode("utf-8")
+    result_json = json.loads(decoded_json)
+    reading = APH(data = result_json)
+    reading.save()
+    
+    
    
 
 def main():
