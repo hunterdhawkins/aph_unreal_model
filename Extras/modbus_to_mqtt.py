@@ -40,32 +40,32 @@ def create_tag_structure(memory_dict):
         if key == "bits":
             for i in range(0, len(value)):
                 # Using zfill to ensure we can support up to 999 tags
-                bit_num = "bit_{}".format(str(i).zfill(3))
+                bit_num = "bit_{}".format(str(i).zfill(4))
                 tag_structure[bit_num] = str(value[i])
 
         if key == "uint16":
             for i in range(0, len(value)):
-                uint16_num = "uint16_{}".format(str(i).zfill(3))
+                uint16_num = "uint16_{}".format(str(i).zfill(4))
                 tag_structure[uint16_num] = str(value[i])
 
         if key == "uint32":
             # We are using 2 here as the unit32 take up 2 registers worth of data
             for i in range(0, len(value), 2):
-                uint32_num = "uint32_{}".format(str(i).zfill(3))
+                uint32_num = "uint32_{}".format(str(i).zfill(4))
                 temp_string = "{}{}".format(value[i], value[i+1])
                 tag_structure[uint32_num] = temp_string
 
         if key == "float32":
             # We are using 2 here as the float32 take up 2 registers worth of data
             for i in range(0, len(value), 2):
-                float32_num = "float_{}".format(str(i).zfill(3))
+                float32_num = "float_{}".format(str(i).zfill(4))
                 temp_string = "{}.{}".format(value[i], value[i+1])
                 tag_structure[float32_num] = temp_string
 
         if key == "strings":
             # We are using 2 here as the strings take up 2 registers worth of data
             for i in range(0, len(value), 2):
-                string_num = "num_of_strings_{}".format(str(i).zfill(3))
+                string_num = "num_of_strings_{}".format(str(i).zfill(4))
                 tag_structure[string_num] = None
 
     print(tag_structure)
@@ -179,4 +179,4 @@ if __name__ == "__main__":
         result_dict = read_values(client, memory_dict, NUM_OF_REG)
         tag_structure = create_tag_structure(result_dict)
         post_json_to_unreal(tag_structure)
-        time.sleep(3)
+        time.sleep(0.05)

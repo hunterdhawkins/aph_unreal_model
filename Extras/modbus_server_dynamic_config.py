@@ -11,10 +11,10 @@ from pymodbus.server import ModbusSimulatorServer
 # chunk it up into two element lists until there is 1 item left
 # then append the last item to the parent list
 memory_dict = {
-    "num_of_bits": 2,
-    "num_of_uint16": 6,
-    "num_of_uint32": 2,
-    "num_of_float32": 2,
+    "num_of_bits": 100,
+    "num_of_uint16": 100,
+    "num_of_uint32": 100,
+    "num_of_float32": 100,
     "num_of_strings": 0,
 }
 

@@ -17,23 +17,12 @@ CONST_topicStr = "ExampleTopic"
 
 db = SqliteDatabase('aph_testing.db')
 
-'''
-class Person(Model):
-    name = CharField()
-    birthday = DateField()
-
-    class Meta:
-        database = db # This model uses the "people.db" database.
-
-uncle_bob = Person(name='Bob', birthday=date(1960, 1, 15))
-uncle_bob.save() # bob is now stored in the database
-'''
-
 
 class APH(Model):
     data = JSONField()
     class Meta:
         database = db
+
     
 def save_reading():
     pass
@@ -42,7 +31,6 @@ def save_reading():
 def connect_to_db():
     db.connect()
 
-# Callbacks:
   
 def on_message( client, userdata, message ):
     result_json = None
@@ -51,16 +39,13 @@ def on_message( client, userdata, message ):
     result_json = json.loads(decoded_json)
     reading = APH(data = result_json)
     reading.save()
-    
-    
-   
+
 
 def main():
     connect_to_db()
     db.create_tables([APH])
 
     paho.mqtt.subscribe.callback( on_message, CONST_topicStr, hostname=CONST_broker_name )
-
 
 
 if __name__ == '__main__':
