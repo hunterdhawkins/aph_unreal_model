@@ -41,3 +41,13 @@ def control_method(request):
 						'current_control_mode': control_mode,
 					}
 	)
+
+
+def create_replay_template(request):
+    
+	return render(
+					request,
+					"home/create_replay_template.html",
+					{
+					}
+	)

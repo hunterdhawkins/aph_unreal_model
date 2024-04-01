@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block page_name %}Display Single Tag Graph{% endblock %}
+
+{% block content %}
+<div id="my_div"></div>
+
+{% endblock %}
+
+{% block page_scripts %}
+<script src="https://cdn.plot.ly/plotly-2.30.0.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+	var trace1 = {
+	  x: [1, 2, 3, 4],
+	  y: [10, 15, 13, 17],
+	  type: 'scatter'
+	};
+
+	var data = [trace1];
+
+	Plotly.newPlot('my_div', data);
+</script>
+{% endblock %}
