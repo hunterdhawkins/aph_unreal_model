@@ -15,3 +15,13 @@ def home(request):
                     {
                     }
     )
+
+
+def display_single_data_point_graph(request):
+        
+    return render(
+                    request,
+                    "home/display_single_tag_graph.html",
+                    {
+                    }
+    )

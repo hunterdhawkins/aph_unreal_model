@@ -3,5 +3,6 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
-    path('', views.home),
+    path('', views.home, name="home"),
+    path('single-tag-graph/', views.display_single_data_point_graph, name='home-display-single-data-point'),
 ]
