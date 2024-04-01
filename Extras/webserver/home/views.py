@@ -25,3 +25,19 @@ def display_single_data_point_graph(request):
                     {
                     }
     )
+
+
+def control_method(request):
+	control_mode="real-time"
+
+	if request.method == 'POST':
+		control_mode = request.POST.get("control_mode")
+		print(control_mode)
+    
+	return render(
+					request,
+					"home/control_method.html",
+					{
+						'current_control_mode': control_mode,
+					}
+	)
