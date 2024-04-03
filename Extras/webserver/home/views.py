@@ -29,13 +29,18 @@ def display_single_data_point_graph(request):
 
 
 def control_method(request):
-	control_mode="real-time"
+
+	control_mode = utils.read_json_file("control_mode.json")
+	control_mode = control_mode['control_mode']
 
 	all_replay_templates = models.Replay.objects.all()
 
 	if request.method == 'POST':
 		control_mode = request.POST.get("control_mode")
-		print(control_mode)
+		utils.write_json_file(
+								"control_mode.json",
+								{"control_mode": control_mode}
+							)
     
 	return render(
 					request,

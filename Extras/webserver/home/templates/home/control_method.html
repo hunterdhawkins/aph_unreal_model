@@ -8,6 +8,7 @@
 		{% csrf_token %}
 		<select class="form-select" aria-label="Default select example" name="control_mode" id="control_mode">
 			<option disabled selected value>Choose a Control Method [Name: Starting Timestamp - Ending Timestamp]</option>
+			<option value = "Real Time">Real Time</option>
 			{% for replay in all_replay_templates %}
 				<option value="{{replay.replay_name}}">{{replay.replay_name}}: {{replay.starting_timestamp}} - {{replay.ending_timestamp}}</option>
 			{% endfor %}
