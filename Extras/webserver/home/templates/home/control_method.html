@@ -4,14 +4,13 @@
 
 	<center><h1> Current Control Method: {{current_control_mode}}</h1></center>
 
-
 	<form method="post" autocomplete="on">
 		{% csrf_token %}
 		<select class="form-select" aria-label="Default select example" name="control_mode" id="control_mode">
-			<option disabled selected value>Choose a Control Method</option>
-			<option value="Real Time">Real Time</option>
-			<option value="Template 1">Replay Template 1</option>
-			<option value="Template 2">Replay Template 2</option>
+			<option disabled selected value>Choose a Control Method [Name: Starting Timestamp - Ending Timestamp]</option>
+			{% for replay in all_replay_templates %}
+				<option value="{{replay.replay_name}}">{{replay.replay_name}}: {{replay.starting_timestamp}} - {{replay.ending_timestamp}}</option>
+			{% endfor %}
 		</select>
 		<button type="submit" class="btn btn-primary btn-lg mt-3">Change Control Method</button>
 	</form> 

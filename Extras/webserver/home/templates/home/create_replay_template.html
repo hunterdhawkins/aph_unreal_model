@@ -1,12 +1,39 @@
 {% extends "base.html" %}
 {% block page_name %}Create Replay Template{% endblock %}
 {% block content %}
-
-
-	<form method="post" autocomplete="on">
-		{% csrf_token %}
-		<button type="submit" class="btn btn-primary btn-lg mt-3">Create Replay Template</button>
-	</form> 
+<center>
+<div class="card bg-light mb-3" style="max-width: 55rem; margin-top: 15px">
+  <div class="card-header" style="background-color: darkblue; color: white;">Job Creation Form</div>
+  <div class="card-body">
+    {% if form.errors %}
+      <div class="alert alert-danger">
+        {{ form.errors }}
+      </div>
+    {% endif %}
+    <form method="post" style="margin-top: 10px;">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      <div class="fieldWrapper">
+          <label for="">Replay Name</label>
+          <div style="display: inline-block;">{{ form.replay_name }}</div>
+          <div style="display: inline-block;">{{ form.replay_name.errors }}</div>
+      </div>
+      <div class="fieldWrapper" style = "margin-left: 95px;">
+          <label for="">Starting Timestamp</label>
+          <input id="starting_timestamp" type="datetime-local" name="starting_timestamp">
+          <div style="display: inline-block;">{{ form.starting_timestamp.errors }}</div>
+      </div>
+      <div class="fieldWrapper" style = "margin-left: 60px;">
+          <label for="">Ending Timestamp</label>
+          <input id="ending_timestamp" type="datetime-local" name="ending_timestamp">
+          <div style="display: inline-block;">{{ form.ending_timestamp.errors }}</div>
+      </div>
+      <br>
+      <input type="submit" value="Submit" class='btn btn-primary btn-lg'>
+    </form>
+  </div>
+</div>
+</center>
 
 {% endblock %}
 
