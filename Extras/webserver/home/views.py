@@ -19,13 +19,15 @@ def home(request):
 
 
 def display_single_data_point_graph(request):
-        
-    return render(
-                    request,
-                    "home/display_single_tag_graph.html",
-                    {
-                    }
-    )
+
+	tag_data = utils.read_json_file("data_points.json")
+	return render(
+					request,
+					"home/display_single_tag_graph.html",
+					{
+						'tag_data': tag_data,
+					}
+	)
 
 
 def control_method(request):
