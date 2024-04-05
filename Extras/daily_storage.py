@@ -14,29 +14,6 @@ CONST_broker_name = "localhost"
 CONST_broker_port = 1883
 CONST_clientID = "CID"
 CONST_topicStr = "ExampleTopic"
-    
-
-# def arrow_example():
-#     days = pa.array([1, 12, 17, 23, 28], type=pa.int8())
-#     months = pa.array([1, 3, 5, 7, 1], type=pa.int8())
-#     years = pa.array([1990, 2000, 1995, 2000, 1995], type=pa.int16())
-#     birthdays_table = pa.table([days, months, years], names=["days", "months", "years"])
-#     pq.write_table(birthdays_table, 'birthdays.parquet')
-
-def create_db_schema():
-    schema = pa.schema([
-        ("timestamp", pa.timestamp('ms')),
-        ("json_data", pa.string()),
-    ])
-    return schema
-
-
-def save_json_data(table, filename):
-    with pa.OSFile(filename, 'wb') as f:
-        writer = pa.RecordBatchFileWriter(f, table.schema)
-        writer.write_table(table)
-        writer.close()
-
 
 def on_message( client, userdata, message ):
     result_json = None
@@ -44,33 +21,20 @@ def on_message( client, userdata, message ):
     decoded_json = message.payload.decode("utf-8")
     result_json = json.loads(decoded_json)
     print(result_json)
-
-
-def main():
-    db_schema = create_db_schema()
-    paho.mqtt.subscribe.callback( on_message, CONST_topicStr, hostname=CONST_broker_name )
-    # arrow_example()
-
-
-if __name__ == '__main__':
-    main()
 '''
 
-import pyarrow as pa
-import pandas as pd
-import json
-import time
+def create_schema():
+    schema = pa.schema([
+        ("timestamp", pa.timestamp('ns')),
+        ("json_data", pa.list_(pa.string()))
+    ])
+    return schema
 
-# Define schema
-schema = pa.schema([
-    ("timestamp", pa.timestamp('ns')),
-    ("json_data", pa.list_(pa.string()))
-])
 
-# Function to collect JSON data
 def collect_json_data():
     # Replace this with your JSON data collection logic
     return [{"key": "value1"}, {"key": "value2"}, {"key": "value3"}]
+
 
 # Function to save Arrow table to disk
 def save_to_disk(table, filename):
@@ -80,8 +44,10 @@ def save_to_disk(table, filename):
         writer.write_table(table)
         writer.close()
 
+
 # Create an empty Arrow table
 table_data = []
+
 
 # Main loop
 while True:
