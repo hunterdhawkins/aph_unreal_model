@@ -76,7 +76,7 @@ def create_tag_structure(memory_dict):
     print(tag_structure)
     
     now = datetime.now()
-    tag_structure["timestamp"] = now.strftime("%m/%d/%Y, %H:%M:%S")
+    # tag_structure["timestamp"] = now.strftime("%m/%d/%Y, %H:%M:%S")
 
     json_tag_structure = json.dumps(tag_structure)
 
@@ -184,4 +184,4 @@ if __name__ == "__main__":
         result_dict = read_values(client, memory_dict, NUM_OF_REG)
         tag_structure = create_tag_structure(result_dict)
         post_json_to_unreal(tag_structure)
-        time.sleep(5)
+        time.sleep(1)

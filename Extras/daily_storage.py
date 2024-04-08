@@ -23,6 +23,12 @@ schema = None
 def on_message( client, userdata, message ):
     global table_data, schema
     
+    # Get the current date for where to save the file
+    today = datetime.today()
+    today = today.strftime("%m-%d-%y")
+    daily_file_name = "{}.parquet".format(today)
+    
+    
     result_json = None
     decoded_json = message.payload.decode("utf-8")
     json_data = json.loads(decoded_json)
@@ -34,23 +40,19 @@ def on_message( client, userdata, message ):
     timestamp_array = pa.array([pd.Timestamp.now()])
     json_array = pa.array([json_strings])
     
-    # batch = pa.RecordBatch.from_arrays([timestamp_array, json_array], schema=schema)
-    # table_data.append(batch)
-    # full_table = pa.Table.from_batches(table_data)
-    # save_to_disk(full_table, 'data.parquet')
-    # table_data = []
-    # print(table_data)
-    
     # Create a new table from the received data
     new_table = pa.Table.from_arrays([timestamp_array, json_array], names=["timestamp", "json_data"])
     
     # Get the existing table
-    existing_table = pq.read_table("example.parquet")
-    
-    appended_table = pa.concat_tables([existing_table, new_table])
-    pq.write_table(appended_table, "example.parquet", compression=None)
-    
-    print("Saving data to disk")
+    try:
+        existing_table = pq.read_table(daily_file_name)
+        appended_table = pa.concat_tables([existing_table, new_table])
+
+    except:
+        existing_table = None
+        appended_table = new_table
+
+    pq.write_table(appended_table, daily_file_name, compression=None)
 
 
 def create_schema():
@@ -60,25 +62,20 @@ def create_schema():
     ])
     return schema
 
-# Function to save Arrow table to disk
-def save_to_disk(table, filename):
-    # Replace 'filename' with the path where you want to save the data
-    with pa.OSFile(filename, 'wb') as f:
-        writer = pa.RecordBatchFileWriter(f, table.schema)
-        writer.write_table(table)
-        writer.close()
-
 
 def view_parquet_data():
-    table = pq.read_table("example.parquet")
+    today = datetime.today()
+    today = today.strftime("%m-%d-%y")
+    daily_file_name = "{}.parquet".format(today)
+    table = pq.read_table(daily_file_name)
     print(table)
 
 
 def main():
     global schema
     schema = create_schema()
-    # paho.mqtt.subscribe.callback( on_message, CONST_topicStr, hostname=CONST_broker_name )
-    view_parquet_data()
+    paho.mqtt.subscribe.callback( on_message, CONST_topicStr, hostname=CONST_broker_name )
+    # view_parquet_data()
 
 
 if __name__ == "__main__":
