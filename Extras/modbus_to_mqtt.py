@@ -184,4 +184,4 @@ if __name__ == "__main__":
         result_dict = read_values(client, memory_dict, NUM_OF_REG)
         tag_structure = create_tag_structure(result_dict)
         post_json_to_unreal(tag_structure)
-        time.sleep(0.05)
+        time.sleep(5)
