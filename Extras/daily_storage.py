@@ -78,8 +78,8 @@ def view_parquet_data():
 def main():
     global schema
     schema = create_schema()
-    # paho.mqtt.subscribe.callback( on_message, CONST_topicStr, hostname=CONST_broker_name )
-    view_parquet_data()
+    paho.mqtt.subscribe.callback( on_message, CONST_topicStr, hostname=CONST_broker_name )
+    # view_parquet_data()
 
 
 if __name__ == "__main__":

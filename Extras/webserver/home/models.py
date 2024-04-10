@@ -9,6 +9,7 @@ class Replay(models.Model):
 
 class DataPoint(models.Model):
     timestamp = models.DateTimeField()
-    json_data = models.JSONField()
+    tag_name = models.CharField(max_length=512)
+    tag_value = models.FloatField()
     
     
