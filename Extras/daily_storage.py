@@ -4,6 +4,7 @@ import ssl
 import paho.mqtt.subscribe
 import paho.mqtt.client
 import pandas as pd
+import numpy as np
 from datetime import datetime
 import pyarrow as pa
 import pyarrow.parquet as pq
@@ -19,7 +20,8 @@ CONST_topicStr = "ExampleTopic"
 # Create an empty Arrow table
 table_data = []
 schema = None
-    
+
+ 
 def on_message( client, userdata, message ):
     global table_data, schema
     
@@ -28,20 +30,22 @@ def on_message( client, userdata, message ):
     today = today.strftime("%m-%d-%y")
     daily_file_name = "{}.parquet".format(today)
     
-    
+    # Gather the MQTT data
     result_json = None
     decoded_json = message.payload.decode("utf-8")
     json_data = json.loads(decoded_json)
-   
-    # Convert JSON data to a list of strings
-    json_strings = [json.dumps(item) for item in json_data]
+    
+    tag_names = list(json_data.keys())
+    tag_values = list(json_data.values())
     
     # Create Arrow Arrays for timestamp and JSON data
     timestamp_array = pa.array([pd.Timestamp.now()])
-    json_array = pa.array([json_strings])
-    
+    tag_names = pa.array([tag_names])
+    tag_values = pa.array([tag_values])
+  
+    # print(timestamp_array, json_array)
     # Create a new table from the received data
-    new_table = pa.Table.from_arrays([timestamp_array, json_array], names=["timestamp", "json_data"])
+    new_table = pa.Table.from_arrays([timestamp_array, tag_names, tag_values], names=["timestamp", "tag_names", "tag_values"])
     
     # Get the existing table
     try:
@@ -74,8 +78,8 @@ def view_parquet_data():
 def main():
     global schema
     schema = create_schema()
-    paho.mqtt.subscribe.callback( on_message, CONST_topicStr, hostname=CONST_broker_name )
-    # view_parquet_data()
+    # paho.mqtt.subscribe.callback( on_message, CONST_topicStr, hostname=CONST_broker_name )
+    view_parquet_data()
 
 
 if __name__ == "__main__":
