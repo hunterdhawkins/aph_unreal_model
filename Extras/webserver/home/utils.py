@@ -21,13 +21,6 @@ def write_json_file(filename, data):
     json.dump(data, f)
 
 
-def find_index_in_list(lst, element):
-    try:
-        return lst.index(element)
-    except ValueError:
-        return None
-
-
 def view_parquet_data(tag_name):
     # Move up one directory to get access to parquet file
     os.chdir("..")
@@ -36,6 +29,7 @@ def view_parquet_data(tag_name):
     # daily_file_name = "{}.parquet".format(today)
     table = pq.read_table("04-10-24.parquet")
     df = table.to_pandas()
+
     # print(df["tag_names"])
-    df['index_of_element'] = df['tag_names'].apply(lambda x: x.index(tag_name) if tag_name in x else None)
+    # df['index_of_element'] = df['tag_names'].apply(lambda x: np.where(x ==tag_name) if tag_name in x else None)
     print(df)
