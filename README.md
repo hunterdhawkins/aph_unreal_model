@@ -35,8 +35,8 @@ This is the first steps in building a digital twin to model Aquifer Pumped Hydro
 - Real time graphing from cache file
 
 ## Authors
-Hunter Hawkins - hawk5052@vandals.uidaho.edu
-Dan Blanchette - blan5568@vandals.uidaho.edu
+- Hunter Hawkins - hawk5052@vandals.uidaho.edu
+- Dan Blanchette - blan5568@vandals.uidaho.edu
 
 ## License
 This project is licensed under the [MIT License](LICENSE.md), which means it is free for anyone to use, modify, and distribute.
