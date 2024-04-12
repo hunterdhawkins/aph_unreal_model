@@ -91,3 +91,10 @@ def create_replay_template(request):
 						"form": form,
 					}
 	)
+
+
+# AJAX Views
+@csrf_exempt
+def get_data(request):
+	data = utils.read_json_file("data.json")
+	return JsonResponse(data)
