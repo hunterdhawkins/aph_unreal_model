@@ -20,8 +20,9 @@ def home(request):
 
 def display_single_data_point_graph(request):
 
-	tag_data = utils.read_json_file("data_points.json")
-	return render(
+    tag_data = None
+    # tag_data = utils.read_json_file("data_points.json")
+    return render(
 					request,
 					"home/display_single_tag_graph.html",
 					{
