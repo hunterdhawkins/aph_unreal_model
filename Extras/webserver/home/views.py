@@ -26,6 +26,7 @@ def display_single_data_point_graph(request):
     if request.method == 'POST':
         # Get the tag name from the user
         tag_name = request.POST.get('tag')
+        print(tag_name)
     
     return render(
 					request,

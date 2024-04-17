@@ -33,7 +33,7 @@ def view_parquet_data(tag_name):
     # today = today.strftime("%m-%d-%y")
     # daily_file_name = "{}.parquet".format(today)
     
-    parquet_data = os.path.join(settings.BASE_DIR, "Parquet-Data/04-15-24.parquet")
+    parquet_data = os.path.join(settings.BASE_DIR, "External-Data/04-15-24.parquet")
     
     table = pq.read_table(parquet_data)
     df = table.to_pandas()
@@ -48,4 +48,11 @@ def view_parquet_data(tag_name):
                 result_value_list.append(row["tag_values"][i])
 
     return result_timestamp_list, result_value_list
+    
+
+def get_memory_config():
+    simulated_modbus_mem_config = os.path.join(settings.BASE_DIR, "External-Data/memory_config.json")
+    config = read_json_file(simulated_modbus_mem_config)
+    # EX config {"num_of_bits": 100, "num_of_uint16": 100, "num_of_uint32": 100, "num_of_float32": 100, "num_of_strings": 0}
+    print(config)
     
