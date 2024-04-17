@@ -20,13 +20,20 @@ def home(request):
 
 def display_single_data_point_graph(request):
 
-    tag_data = None
-    # tag_data = utils.read_json_file("data_points.json")
+    tag_name = None
+    timestamp_list, value_list = utils.view_parquet_data("bit_0000")
+
+    if request.method == 'POST':
+        # Get the tag name from the user
+        tag_name = request.POST.get('tag')
+    
     return render(
 					request,
 					"home/display_single_tag_graph.html",
 					{
-						'tag_data': tag_data,
+						'timestamp_list': timestamp_list,
+                        'value_list': value_list,
+                        'tag_name': tag_name,
 					}
 	)
 
