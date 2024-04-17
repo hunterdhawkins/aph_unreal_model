@@ -51,8 +51,17 @@ def view_parquet_data(tag_name):
     
 
 def get_memory_config():
+
+    result_tag_list = []
     simulated_modbus_mem_config = os.path.join(settings.BASE_DIR, "External-Data/memory_config.json")
     config = read_json_file(simulated_modbus_mem_config)
     # EX config {"num_of_bits": 100, "num_of_uint16": 100, "num_of_uint32": 100, "num_of_float32": 100, "num_of_strings": 0}
-    print(config)
+    for key, value in config.items():
+        if key == "num_of_bits":
+            for i in range(0, value):
+                # Using zfill to ensure we can support up to 999 tags
+                bit_num = "bit_{}".format(str(i).zfill(4))
+                result_tag_list.append(bit_num)
+                
+    return result_tag_list
     
