@@ -23,11 +23,13 @@ def display_single_data_point_graph(request):
     tag_name = None
     timestamp_list, value_list = utils.view_parquet_data("bit_0000")
 
+    tag_options = utils.get_memory_config()
+    
     if request.method == 'POST':
         # Get the tag name from the user
         tag_name = request.POST.get('tag')
-        print(tag_name)
-    
+        timestamp_list, value_list = utils.view_parquet_data(tag_name)
+
     return render(
 					request,
 					"home/display_single_tag_graph.html",
@@ -35,6 +37,7 @@ def display_single_data_point_graph(request):
 						'timestamp_list': timestamp_list,
                         'value_list': value_list,
                         'tag_name': tag_name,
+                        'tag_options': tag_options,
 					}
 	)
 

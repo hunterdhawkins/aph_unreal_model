@@ -3,21 +3,16 @@
 {% block page_name %}Display Single Tag Graph{% endblock %}
 
 {% block content %}
-	{{tag_name}}
-	<form method="post" autocomplete="on" style="margin-top: 75px;">
+	<form method="post" autocomplete="on" style="margin-top: 10px;">
 			<label for="tag" style="font-size: x-large;">Choose a Tag</label>
 			{% csrf_token %}
 				<select id="tag" name="tag" class="form-select w-25 p-3">
 					<option disabled selected value> -- select an option -- </option>
-					<optgroup label="Bits">
-						<option>Bit 0</option>
-						<option>Bit 1</option>
-					</optgroup>
-					<optgroup label="Uint_16s">
-						<option>Uint16 0</option>
-						<option>Uint16 1</option>
-					</optgroup>
-					
+						{% for tag in tag_options %}
+							<option>
+								{{tag}}
+							</option>
+						{% endfor %}
 				</select>
 			<button type="submit" class="btn btn-primary btn-lg" style="margin-top: 15px;">Get Historical Data</button>
 		</form>
@@ -36,15 +31,29 @@
 
 		const timestamp_list = {{ timestamp_list | safe }};
 		const value_list = {{ value_list | safe }};
-		// console.log(tag_data)
+		var tag_name = "{{tag_name}}";
+	
 		var trace1 = {
 		  x: timestamp_list,
 		  y: value_list,
 		  type: 'scatter'
 		};
+		
+		var layout = {
+			title: {
+				text: tag_name,
+				font: {
+					family: 'Courier New, monospace',
+					size: 70
+				},
+			yref: 'paper',
+			automargin: true,
+			},
+			showlegend: false
+		};
 
 		var data = [trace1];
 
-		Plotly.newPlot('my_div', data);
+		Plotly.newPlot('my_div', data, layout);
 	</script>
 {% endblock %}
