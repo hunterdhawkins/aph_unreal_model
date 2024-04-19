@@ -4,8 +4,10 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 import pandas as pd
 import numpy as np
+import datetime
 from django.conf import settings
 
+# HMI Control Room 172.16.10.30
 
 def handle_control_method():
 	pass
@@ -29,11 +31,13 @@ def view_parquet_data(tag_name):
     # Move up one directory to get access to parquet file
     # os.chdir("..")
     
-    # today = datetime.today()
-    # today = today.strftime("%m-%d-%y")
-    # daily_file_name = "{}.parquet".format(today)
+    today = datetime.datetime.today()
+    today = today.strftime("%m-%d-%y")
+    daily_file_name = "{}.parquet".format(today)
     
-    parquet_data = os.path.join(settings.BASE_DIR, "External-Data/04-15-24.parquet")
+    file_path = "External-Data/{}".format(daily_file_name)
+    
+    parquet_data = os.path.join(settings.BASE_DIR, file_path)
     
     table = pq.read_table(parquet_data)
     df = table.to_pandas()

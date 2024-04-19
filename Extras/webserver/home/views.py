@@ -29,6 +29,7 @@ def display_single_data_point_graph(request):
         # Get the tag name from the user
         tag_name = request.POST.get('tag')
         timestamp_list, value_list = utils.view_parquet_data(tag_name)
+        print(len(timestamp_list), len(value_list))
 
     return render(
 					request,

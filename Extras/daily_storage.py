@@ -30,6 +30,8 @@ def on_message( client, userdata, message ):
     today = today.strftime("%m-%d-%y")
     daily_file_name = "{}.parquet".format(today)
     
+    webserver_file_name = "webserver\External-Data\{}".format(daily_file_name)
+    
     # Gather the MQTT data
     result_json = None
     decoded_json = message.payload.decode("utf-8")
@@ -57,6 +59,8 @@ def on_message( client, userdata, message ):
         appended_table = new_table
 
     pq.write_table(appended_table, daily_file_name, compression=None)
+    pq.write_table(appended_table, webserver_file_name, compression=None)
+    
 
 
 def create_schema():
