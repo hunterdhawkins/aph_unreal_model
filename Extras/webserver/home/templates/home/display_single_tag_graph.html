@@ -57,30 +57,42 @@
 		};
 
 		var data = [trace1];
+		
+		console.log("Init Timestamp List Length: ", timestamp_list.length)
+		console.log("Init Value List Length: ", value_list.length)
 
 		Plotly.newPlot('my_div', data, layout);
 		
 		
 		$( document ).ready(function() {
 			setInterval(function() {
-
+				
 			  $("#timestamp_list").load(" #timestamp_list");
 			  $("#value_list").load(" #value_list");
 			  
-			  timestamp_list = $('#timestamp_list').text();
-			  value_list = $('#value_list').text();
+			  var temp_timestamp_list = $('#timestamp_list').text();
+			  var temp_value_list = $('#value_list').text();
 			  
-			  /*
+			  // Reformat data for timestamp
+			  var timestamp_result = temp_timestamp_list.substring(1, temp_timestamp_list.length-1);
+			  var timestamp_result = timestamp_result.split("',");
+			  
+			  var value_result = temp_value_list.substring(1, temp_value_list.length-1);
+			  var value_result = value_result.split(',');
+			  
+			  //console.log(value_result.length)
+			  //console.log(timestamp_result.length)
+			  
+			 
 			  var updated_trace = {
-				x: [timestamp_list],
-				y: [value_list],
+				x: [timestamp_result],
+				y: [value_result],
 				type: 'scatter'
 			  };
-			  */
+
+			var updated_data = [updated_trace];
 			
-			console.log(timestamp_list.length)
-			console.log(value_list.length)
-			// Plotly.restyle('my_div', updated_trace);
+			Plotly.restyle('my_div', updated_trace);
 			}, 2000);
 		});
 
